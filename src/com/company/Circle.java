@@ -28,7 +28,6 @@ class Circle extends JPanel {
 		revalidate();
 		repaint();
 		score += 10;
-		//System.out.println(score);
 	}
 
 	public int getScore() {
@@ -57,5 +56,16 @@ class Circle extends JPanel {
 		}
 		revalidate();
 		repaint();
+	}
+
+	public void removeCircleAfterTime() {
+		new java.util.Timer().schedule(
+				new java.util.TimerTask() {
+					@Override
+					public void run() {
+						removeCircle();
+					}
+				}, 2000, 1000
+		);
 	}
 }
